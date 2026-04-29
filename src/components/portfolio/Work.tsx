@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Code as Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
+import { ImageWithSkeleton } from "./ImageWithSkeleton";
 
 export const Work = () => (
   <section id="work" className="py-32 relative">
@@ -38,7 +39,7 @@ export const Work = () => (
               className="group block rounded-3xl overflow-hidden bg-card border border-border hover:border-amber/40 transition-all duration-700"
             >
               <div className="aspect-[4/3] overflow-hidden relative">
-                <img
+                <ImageWithSkeleton
                   src={p.img}
                   alt={`${p.title} — ${p.tag}`}
                   width={1200}
@@ -46,9 +47,10 @@ export const Work = () => (
                   loading="lazy"
                   decoding="async"
                   fetchPriority="low"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  wrapperClassName="w-full h-full"
+                  imgClassName="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60 pointer-events-none" />
               </div>
               <div className="p-6 md:p-8">
                 <div className="flex items-start justify-between gap-6 mb-4">
