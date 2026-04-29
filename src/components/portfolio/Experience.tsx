@@ -167,7 +167,11 @@ export const Experience = () => {
                     className={`relative md:grid md:grid-cols-2 md:gap-12 ${isRight ? "" : "md:[&>*:first-child]:col-start-2"}`}
                   >
                     {/* node */}
-                    <div className="absolute left-6 md:left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-amber shadow-glow z-10" />
+                    <div
+                      aria-hidden="true"
+                      style={{ transform: "translate(-50%, 0)" }}
+                      className="pointer-events-none absolute left-6 md:left-1/2 top-4 w-3 h-3 rounded-full bg-amber shadow-glow z-10"
+                    />
 
                     <div className={`pl-16 md:pl-0 ${isRight ? "md:pr-12 md:text-right" : "md:pl-12 md:col-start-2"}`}>
                       <div className={`inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3 ${isRight ? "md:flex-row-reverse" : ""}`}>
