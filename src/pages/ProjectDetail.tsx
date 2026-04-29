@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, Calendar, User } from "lucide-react";
 import { Navbar } from "@/components/portfolio/Navbar";
+import { ImageWithSkeleton } from "@/components/portfolio/ImageWithSkeleton";
 import { getProject, projects } from "@/data/projects";
 
 const ProjectDetail = () => {
@@ -92,12 +93,15 @@ const ProjectDetail = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="mt-12 rounded-3xl overflow-hidden border border-border glow"
           >
-            <img
+            <ImageWithSkeleton
               src={project.img}
               alt={`${project.title} cover`}
               width={1600}
               height={1200}
-              className="w-full h-auto"
+              decoding="async"
+              fetchPriority="high"
+              wrapperClassName="w-full aspect-[4/3]"
+              imgClassName="w-full h-full object-cover"
             />
           </motion.div>
 
@@ -134,11 +138,14 @@ const ProjectDetail = () => {
                   className="group rounded-2xl overflow-hidden border border-border bg-card hover:border-amber/40 transition-all"
                 >
                   <div className="aspect-[16/9] overflow-hidden">
-                    <img
+                    <ImageWithSkeleton
                       src={p.img}
                       alt={p.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                      decoding="async"
+                      fetchPriority="low"
+                      wrapperClassName="w-full h-full"
+                      imgClassName="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6 flex items-center justify-between">
