@@ -44,7 +44,9 @@ export const Work = () => (
                   alt={`${p.title} — ${p.tag}`}
                   width={1200}
                   height={900}
-                  loading="lazy"
+                  // Eager + async so thumbnails appear instantly once the
+                  // idle-time preloader has warmed the cache.
+                  loading={i < 2 ? "eager" : "lazy"}
                   decoding="async"
                   fetchPriority="low"
                   wrapperClassName="w-full h-full"
