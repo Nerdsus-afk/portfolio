@@ -109,4 +109,27 @@
     -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
     mask-image: linear-gradient(180deg, #000 60%, transparent);
   }
+
+  /* Themed shimmer skeleton for loading images */
+  .skeleton-shimmer {
+    background-color: hsl(var(--muted));
+    background-image: linear-gradient(
+      100deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--muted) / 0.6) 40%,
+      hsl(var(--amber) / 0.08) 50%,
+      hsl(var(--muted) / 0.6) 60%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    animation: skeleton-shimmer 1.6s ease-in-out infinite;
+  }
+  @keyframes skeleton-shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton-shimmer { animation: none; }
+  }
 }
