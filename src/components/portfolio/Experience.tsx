@@ -149,7 +149,7 @@ export const Experience = () => {
 
         <div className="relative max-w-4xl mx-auto">
           {/* vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-amber/60 via-border to-transparent md:-translate-x-px" />
+          <div className="absolute left-6 md:left-1/2 top-2 bottom-2 w-px -translate-x-1/2 bg-gradient-to-b from-amber/60 via-border to-transparent" />
 
           <div className="space-y-14">
             <AnimatePresence mode="popLayout">
