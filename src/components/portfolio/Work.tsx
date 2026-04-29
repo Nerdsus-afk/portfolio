@@ -3,6 +3,7 @@ import { ArrowUpRight, Code as Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
 import { prefetchHandlers } from "@/lib/prefetch";
+import { useInViewPrefetch } from "@/hooks/use-in-view-prefetch";
 import { ImageWithSkeleton } from "./ImageWithSkeleton";
 
 export const Work = () => (
