@@ -5,8 +5,14 @@ import { About } from "@/components/portfolio/About";
 import { Experience } from "@/components/portfolio/Experience";
 import { Process } from "@/components/portfolio/Process";
 import { Contact } from "@/components/portfolio/Contact";
+import { projects } from "@/data/projects";
+import { usePreloadImages } from "@/hooks/use-preload-images";
 
 const Index = () => {
+  // Warm project image cache during idle time so thumbnails appear
+  // instantly when the user scrolls, without hurting the hero LCP.
+  usePreloadImages(projects.map((p) => p.img));
+
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
