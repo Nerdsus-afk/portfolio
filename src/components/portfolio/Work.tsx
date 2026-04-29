@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Code as Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
+import { prefetchHandlers } from "@/lib/prefetch";
 import { ImageWithSkeleton } from "./ImageWithSkeleton";
 
 export const Work = () => (
@@ -36,6 +37,7 @@ export const Work = () => (
           >
             <Link
               to={`/projects/${p.slug}`}
+              {...prefetchHandlers(p.img)}
               className="group block rounded-3xl overflow-hidden bg-card border border-border hover:border-amber/40 transition-all duration-700"
             >
               <div className="aspect-[4/3] overflow-hidden relative">

@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight, Calendar, User } from "lucide-react";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { ImageWithSkeleton } from "@/components/portfolio/ImageWithSkeleton";
 import { getProject, projects } from "@/data/projects";
+import { prefetchHandlers } from "@/lib/prefetch";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -135,6 +136,7 @@ const ProjectDetail = () => {
                 <Link
                   key={p.slug}
                   to={`/projects/${p.slug}`}
+                  {...prefetchHandlers(p.img)}
                   className="group rounded-2xl overflow-hidden border border-border bg-card hover:border-amber/40 transition-all"
                 >
                   <div className="aspect-[16/9] overflow-hidden">
