@@ -87,6 +87,9 @@ export const Hero = () => {
               alt="Yashwant Kumar S — Computer Science student & developer"
               width={1024}
               height={1280}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover animate-float"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
