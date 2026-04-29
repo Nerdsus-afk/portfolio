@@ -60,8 +60,18 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
+    position: relative;
+  }
+  /* Fixed glow layer rendered as its own composited element to avoid
+     repainting the gradient on every scroll frame (was: background-attachment: fixed). */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
     background-image: var(--gradient-glow);
-    background-attachment: fixed;
+    pointer-events: none;
+    z-index: -1;
+    will-change: transform;
   }
   ::selection { background: hsl(var(--amber) / 0.3); color: hsl(var(--cream)); }
 }
