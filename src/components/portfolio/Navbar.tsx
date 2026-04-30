@@ -23,16 +23,16 @@ export const Navbar = () => (
       <ul className="hidden md:flex items-center gap-8 text-sm">
         {links.map((l) => (
           <li key={l.href}>
-            <Link to={`/${l.href}`} className="relative text-muted-foreground hover:text-foreground transition-colors group">
+            <a href={l.href} className="relative text-muted-foreground hover:text-foreground transition-colors group">
               {l.label}
               <span className="absolute -bottom-1 left-0 h-px w-0 bg-amber transition-all duration-500 group-hover:w-full" />
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
-      <Link to="/#contact" className="text-sm font-medium px-4 py-2 rounded-full border border-border hover:border-amber hover:text-amber transition-all">
+      <a href="#contact" className="text-sm font-medium px-4 py-2 rounded-full border border-border hover:border-amber hover:text-amber transition-all">
         Hire me
-      </Link>
+      </a>
     </nav>
   </motion.header>
 );
