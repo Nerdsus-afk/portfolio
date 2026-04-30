@@ -94,11 +94,11 @@ export const Hero = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           </div>
-          <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card backdrop-blur">
+          <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card">
             <p className="font-display text-3xl text-amber">9.16</p>
             <p className="text-xs text-muted-foreground uppercase tracking-wider">CGPA · SRM IST</p>
           </div>
-          <div className="absolute -top-4 -right-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card backdrop-blur hidden md:block">
+          <div className="absolute -top-4 -right-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card hidden md:block">
             <p className="font-display text-3xl text-amber-gradient">2026</p>
             <p className="text-xs text-muted-foreground uppercase tracking-wider">Graduating</p>
           </div>
@@ -106,7 +106,7 @@ export const Hero = () => {
       </div>
 
       {/* Marquee */}
-      <div className="absolute bottom-0 left-0 right-0 border-y border-border/40 bg-background/30 backdrop-blur overflow-hidden py-5">
+      <div className="absolute bottom-0 left-0 right-0 border-y border-border/40 bg-background overflow-hidden py-5">
         <div className="flex marquee whitespace-nowrap font-display text-3xl text-muted-foreground/60">
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex items-center gap-12 px-6 shrink-0">
