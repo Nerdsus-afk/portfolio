@@ -1,10 +1,18 @@
 import { motion } from "framer-motion";
+import { CheckCircle2, Building2 } from "lucide-react";
 
 const skills = [
   { label: "Java & OOP", value: 88 },
   { label: "Python & ML / NLP", value: 84 },
   { label: "DSA & Problem Solving", value: 86 },
   { label: "SQL & Databases", value: 82 },
+];
+
+const offers = [
+  { company: "Bank of America", role: "Apprentice", ctc: "6.45 LPA", chosen: true },
+  { company: "Accenture", role: "Advanced Engineering (AEH)", ctc: "11 LPA", chosen: false },
+  { company: "Infosys", role: "Digital Specialist Engineer", ctc: "7 LPA", chosen: false },
+  { company: "Cognizant", role: "GenC", ctc: "4 LPA", chosen: false },
 ];
 
 export const About = () => (
@@ -29,11 +37,47 @@ export const About = () => (
             ideas into working software.
           </p>
           <p>
+            I've been fortunate to receive offers from four great companies during
+            campus placements, and I've chosen to begin my career at{" "}
+            <span className="text-foreground">Bank of America</span> as an Apprentice —
+            excited to grow in a place where engineering meets impact at scale.
+          </p>
+          <p>
             Most recently I interned at <span className="text-foreground">Opportive</span> as
             a Web Development Intern, contributing to a Learning Management System and
             a real-time chat module with Socket.IO. Outside coursework I tinker with
             NLP, sharpen my DSA, and daily-drive Arch Linux with Hyprland.
           </p>
+        </div>
+
+        {/* Offers */}
+        <div className="mt-12">
+          <p className="text-xs uppercase tracking-[0.3em] text-amber mb-5 flex items-center gap-2">
+            <Building2 className="w-3.5 h-3.5" /> Placement offers
+          </p>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {offers.map((o) => (
+              <div
+                key={o.company}
+                className={`relative p-5 rounded-2xl border transition-all ${
+                  o.chosen
+                    ? "border-amber bg-card shadow-glow"
+                    : "border-border bg-card/60"
+                }`}
+              >
+                {o.chosen && (
+                  <span className="absolute top-3 right-3 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.18em] text-amber font-medium">
+                    <CheckCircle2 className="w-3 h-3" /> Chosen
+                  </span>
+                )}
+                <p className={`font-display text-lg ${o.chosen ? "text-amber-gradient" : "text-foreground"}`}>
+                  {o.company}
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">{o.role}</p>
+                <p className="text-sm font-medium mt-3 text-foreground">{o.ctc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
 
@@ -65,9 +109,9 @@ export const About = () => (
         <div className="grid grid-cols-2 gap-4 pt-8">
           {[
             { k: "9.16", v: "CGPA at SRM" },
-            { k: "4+", v: "Major projects" },
+            { k: "4", v: "Placement offers" },
+            { k: "BofA", v: "Joining 2026" },
             { k: "1", v: "Industry internship" },
-            { k: "7+", v: "Certifications" },
           ].map((s) => (
             <div key={s.v} className="p-5 rounded-2xl bg-card border border-border">
               <p className="font-display text-3xl text-amber-gradient">{s.k}</p>
@@ -79,3 +123,4 @@ export const About = () => (
     </div>
   </section>
 );
+
