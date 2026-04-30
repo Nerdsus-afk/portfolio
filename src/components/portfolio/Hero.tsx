@@ -101,8 +101,8 @@ export const Hero = () => {
             <p className="text-xs text-muted-foreground uppercase tracking-wider">CGPA · SRM IST</p>
           </div>
           <div className="absolute -top-4 -right-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card hidden md:block">
-            <p className="font-display text-3xl text-amber-gradient">2026</p>
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Graduating</p>
+            <p className="font-display text-2xl text-amber-gradient">BofA</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">Placed · 2026</p>
           </div>
         </motion.div>
       </div>
