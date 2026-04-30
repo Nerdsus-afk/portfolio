@@ -15,7 +15,7 @@ export const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 text-xs uppercase tracking-[0.2em] text-muted-foreground"
           >
             <Sparkles className="w-3 h-3 text-amber" />
-            Open to opportunities · Class of 2026
+            Placed at Bank of America · Class of 2026
           </motion.div>
 
           <h1 className="font-display font-light tracking-tighter leading-[0.9] text-[clamp(3rem,9vw,8rem)]">
