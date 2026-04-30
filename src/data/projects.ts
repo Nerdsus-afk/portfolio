@@ -56,7 +56,7 @@ export const projects: Project[] = [
     year: "2024",
     desc: "Comparative study of Passive-Aggressive, Naïve Bayes, SVM, and Logistic Regression for fake news detection — tuned with GridSearch and evaluated via ROC, F1, precision, and recall.",
     stack: ["Python", "scikit-learn", "NLP", "Pandas", "Matplotlib"],
-    role: "Solo · Academic Research",
+    role: "Collaborative Development · Academic Research",
     duration: "2024",
     overview:
       "An end-to-end ML study comparing four classical models for fake news classification. The goal was to understand which model genuinely generalised best, not just which had the highest top-line accuracy.",
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     year: "2024",
     desc: "JavaFX restaurant ordering platform with dynamic menu switching, secure order processing, real-time database updates and authenticated user flows.",
     stack: ["Java", "JavaFX", "Scene Builder", "MySQL"],
-    role: "Solo Developer",
+    role: "Collaborative Development",
     duration: "2024",
     overview:
       "A desktop application that lets a restaurant manage menus and process orders while customers browse and order from a clean JavaFX interface.",
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     year: "2023",
     desc: "A desktop package manager for seamless library tracking with database-backed change history and a clean Tkinter interface.",
     stack: ["Python", "Tkinter", "MySQL"],
-    role: "Solo Developer",
+    role: "Collaborative Development",
     duration: "2023",
     overview:
       "A small but useful desktop tool that helps track installed libraries and their changes across time, backed by a relational database.",
