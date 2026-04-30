@@ -16,11 +16,7 @@ export const Navbar = () => (
     className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border/40"
   >
     <nav className="container flex items-center justify-between h-16">
-      
-        href="#"
-        onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-        className="font-display text-xl font-semibold tracking-tight"
-      >
+      <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="font-display text-xl font-semibold tracking-tight">
         YASHWANT<span className="text-amber">.</span>
       </a>
       <ul className="hidden md:flex items-center gap-8 text-sm">
