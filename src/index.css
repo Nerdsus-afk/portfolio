@@ -56,14 +56,23 @@
 
 @layer base {
   * { @apply border-border; }
-  html { scroll-behavior: smooth; }
+  html {
+    /* Use smooth scroll only for in-page anchor jumps, not for wheel/trackpad
+       which fights native momentum and feels rough. */
+    scroll-behavior: auto;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html:focus-within { scroll-behavior: smooth; }
+  }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
     position: relative;
+    /* Promote body to its own layer so the fixed glow doesn't repaint on scroll. */
+    overflow-x: hidden;
   }
-  /* Fixed glow layer rendered as its own composited element to avoid
-     repainting the gradient on every scroll frame (was: background-attachment: fixed). */
+  /* Fixed glow as a composited layer — transform-only, no repaint on scroll. */
   body::before {
     content: "";
     position: fixed;
@@ -71,7 +80,7 @@
     background-image: var(--gradient-glow);
     pointer-events: none;
     z-index: -1;
-    will-change: transform;
+    transform: translateZ(0);
   }
   ::selection { background: hsl(var(--amber) / 0.3); color: hsl(var(--cream)); }
 }
