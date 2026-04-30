@@ -15,7 +15,7 @@ export const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 text-xs uppercase tracking-[0.2em] text-muted-foreground"
           >
             <Sparkles className="w-3 h-3 text-amber" />
-            Open to opportunities · Class of 2026
+            Placed at Bank of America · Class of 2026
           </motion.div>
 
           <h1 className="font-display font-light tracking-tighter leading-[0.9] text-[clamp(3rem,9vw,8rem)]">
@@ -52,8 +52,9 @@ export const Hero = () => {
             className="max-w-xl text-lg text-muted-foreground leading-relaxed"
           >
             Final-year Computer Science student at SRM Institute of Science and Technology
-            (CGPA 9.16). I build software across Java, Python, and the web, explore machine
-            learning and NLP, and live in the terminal on Arch Linux + Hyprland.
+            (CGPA 9.16). Joining <span className="text-foreground">Bank of America</span> as
+            an Apprentice in 2026. I build software across Java, Python, and the web, explore
+            machine learning and NLP, and live in the terminal on Arch Linux + Hyprland.
           </motion.p>
 
           <motion.div
@@ -100,8 +101,8 @@ export const Hero = () => {
             <p className="text-xs text-muted-foreground uppercase tracking-wider">CGPA · SRM IST</p>
           </div>
           <div className="absolute -top-4 -right-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card hidden md:block">
-            <p className="font-display text-3xl text-amber-gradient">2026</p>
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Graduating</p>
+            <p className="font-display text-2xl text-amber-gradient">BofA</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">Placed · 2026</p>
           </div>
         </motion.div>
       </div>

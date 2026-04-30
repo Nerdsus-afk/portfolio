@@ -16,6 +16,17 @@ const items: {
   {
     icon: Briefcase,
     category: "experience",
+    title: "Apprentice (Incoming)",
+    org: "Bank of America · 6.45 LPA",
+    period: "Joining 2026",
+    points: [
+      "Selected through campus placements at SRM IST to join Bank of America as an Apprentice.",
+      "Chose BofA over offers from Accenture (AEH · 11 LPA), Infosys (DSE · 7 LPA) and Cognizant (GenC · 4 LPA) to grow long-term in a global engineering org.",
+    ],
+  },
+  {
+    icon: Briefcase,
+    category: "experience",
     title: "Web Development Intern",
     org: "Opportive",
     period: "Jul 2025 – Aug 2025",

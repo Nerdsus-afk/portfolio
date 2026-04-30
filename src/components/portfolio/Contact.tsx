@@ -37,9 +37,9 @@ export const Contact = () => (
         transition={{ delay: 0.2 }}
         className="text-muted-foreground text-lg max-w-xl mx-auto mb-12"
       >
-        I'm actively looking for full-time SDE roles and challenging
-        internships starting 2026. If you have a problem worth solving,
-        I'd love to hear about it.
+        I'm joining Bank of America as an Apprentice in 2026. Until then,
+        I'm always up for interesting conversations, side projects, and
+        collaborations — drop me a line.
       </motion.p>
 
       <motion.a
