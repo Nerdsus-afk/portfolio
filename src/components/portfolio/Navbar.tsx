@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import { useNavigate } from "react-router-dom";
 const links = [
   { label: "Projects", href: "#work" },
   { label: "About", href: "#about" },
@@ -9,6 +9,17 @@ const links = [
 ];
 
 export const Navbar = () => (
+  const navigate = useNavigate();
+
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    navigate("/");
+    setTimeout(() => {
+      const id = href.replace("#", "");
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  };
+  return(
   <motion.header
     initial={{ y: -30, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
@@ -35,3 +46,4 @@ export const Navbar = () => (
     </nav>
   </motion.header>
 );
+};
