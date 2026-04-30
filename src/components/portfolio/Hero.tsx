@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import portrait from "@/assets/hero-portrait.jpg";
 
 export const Hero = () => {
@@ -61,13 +62,13 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.75 }}
             className="flex flex-wrap items-center gap-4"
           >
-            <a
-              href="#work"
+            <Link
+              to="/#work"
               className="group inline-flex items-center gap-3 bg-gradient-amber text-primary-foreground font-medium px-7 py-4 rounded-full hover:shadow-glow transition-all duration-500"
             >
               Explore my projects
               <ArrowDownRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" />
-            </a>
+            </Link>
             <a href="https://github.com/Yashwantkumar2005" target="_blank" rel="noreferrer" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               View GitHub →
             </a>
