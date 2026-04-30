@@ -57,11 +57,12 @@
 @layer base {
   * { @apply border-border; }
   html {
-    /* Use smooth scroll only for in-page anchor jumps, not for wheel/trackpad
-       which fights native momentum and feels rough. */
+    /* Default: native momentum scroll. Toggle via SmoothScrollToggle. */
     scroll-behavior: auto;
     -webkit-text-size-adjust: 100%;
   }
+  html[data-smooth-scroll="on"] { scroll-behavior: smooth; }
+  /* Always smooth for in-page anchor focus jumps when user prefers motion. */
   @media (prefers-reduced-motion: no-preference) {
     html:focus-within { scroll-behavior: smooth; }
   }
