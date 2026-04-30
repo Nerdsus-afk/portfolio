@@ -115,7 +115,7 @@ export const Experience = () => {
           <div
             role="tablist"
             aria-label="Filter timeline"
-            className="relative inline-flex p-1 rounded-full border border-border bg-card/50 backdrop-blur self-start md:self-end"
+            className="relative inline-flex p-1 rounded-full border border-border bg-card self-start md:self-end"
           >
             {filters.map((f) => {
               const active = filter === f.id;

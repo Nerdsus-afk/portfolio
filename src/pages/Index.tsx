@@ -5,7 +5,6 @@ import { About } from "@/components/portfolio/About";
 import { Experience } from "@/components/portfolio/Experience";
 import { Process } from "@/components/portfolio/Process";
 import { Contact } from "@/components/portfolio/Contact";
-import { SmoothScrollToggle } from "@/components/portfolio/SmoothScrollToggle";
 import { projects } from "@/data/projects";
 import { usePreloadImages } from "@/hooks/use-preload-images";
 
@@ -23,7 +22,6 @@ const Index = () => {
       <Experience />
       <Process />
       <Contact />
-      <SmoothScrollToggle />
     </main>
   );
 };

@@ -57,14 +57,13 @@
 @layer base {
   * { @apply border-border; }
   html {
-    /* Default: native momentum scroll. Toggle via SmoothScrollToggle. */
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    /* Reserve scrollbar gutter so layout doesn't shift, helping smoothness */
+    scrollbar-gutter: stable;
   }
-  html[data-smooth-scroll="on"] { scroll-behavior: smooth; }
-  /* Always smooth for in-page anchor focus jumps when user prefers motion. */
-  @media (prefers-reduced-motion: no-preference) {
-    html:focus-within { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
   }
   body {
     @apply bg-background text-foreground antialiased;
