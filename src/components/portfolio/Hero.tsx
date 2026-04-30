@@ -52,8 +52,9 @@ export const Hero = () => {
             className="max-w-xl text-lg text-muted-foreground leading-relaxed"
           >
             Final-year Computer Science student at SRM Institute of Science and Technology
-            (CGPA 9.16). I build software across Java, Python, and the web, explore machine
-            learning and NLP, and live in the terminal on Arch Linux + Hyprland.
+            (CGPA 9.16). Joining <span className="text-foreground">Bank of America</span> as
+            an Apprentice in 2026. I build software across Java, Python, and the web, explore
+            machine learning and NLP, and live in the terminal on Arch Linux + Hyprland.
           </motion.p>
 
           <motion.div
