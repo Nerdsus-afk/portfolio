@@ -13,7 +13,7 @@ const skills = [
 ];
 
 const offers = [
-  { company: "Bank of America", role: "Apprentice", ctc: "6.45 LPA", chosen: true, logo: bofaLogo },
+  { company: "Bank of America", role: "Apprentice Software Engineer", ctc: "6.45 LPA", chosen: true, logo: bofaLogo },
   { company: "Accenture", role: "Advanced Engineering (AEH)", ctc: "11 LPA", chosen: false, logo: accentureLogo },
   { company: "Infosys", role: "Digital Specialist Engineer", ctc: "7 LPA", chosen: false, logo: infosysLogo },
   { company: "Cognizant", role: "GenC", ctc: "4 LPA", chosen: false, logo: cognizantLogo },
@@ -36,7 +36,7 @@ export const About = () => (
         <div className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-2xl">
           <p>
             I'm a final-year Computer Science and Engineering student at SRM Institute
-            of Science and Technology, graduating in 2026 with a CGPA of 9.16. I enjoy
+            of Science and Technology, graduating in 2026 with a CGPA of 9.12. I enjoy
             writing clean Java and Python, exploring machine learning, and turning
             ideas into working software.
           </p>
@@ -126,7 +126,7 @@ export const About = () => (
 
         <div className="grid grid-cols-2 gap-4 pt-8">
           {[
-            { k: "9.16", v: "CGPA at SRM" },
+            { k: "9.12", v: "CGPA at SRM" },
             { k: "4", v: "Placement offers" },
             { k: "BofA", v: "Joining 2026" },
             { k: "1", v: "Industry internship" },
