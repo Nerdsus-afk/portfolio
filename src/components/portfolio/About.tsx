@@ -63,34 +63,36 @@ export const About = () => (
             {offers.map((o) => (
               <div
                 key={o.company}
-                className={`relative p-5 rounded-2xl border transition-all ${
+                className={`relative p-5 rounded-2xl border transition-all overflow-hidden ${
                   o.chosen
                     ? "border-amber bg-card shadow-glow"
                     : "border-border bg-card/60"
                 }`}
               >
                 {o.chosen && (
-                  <span className="absolute top-3 right-3 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.18em] text-amber font-medium">
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.18em] text-amber font-medium z-10">
                     <CheckCircle2 className="w-3 h-3" /> Chosen
                   </span>
                 )}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center p-1.5 shrink-0 border border-border">
+                <div className="flex items-center justify-between gap-4 min-h-[110px]">
+                  <div className="flex-1 min-w-0">
+                    <p className={`font-display text-lg leading-tight ${o.chosen ? "text-amber-gradient" : "text-foreground"}`}>
+                      {o.company}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-2">{o.role}</p>
+                    <p className="text-sm font-medium mt-2 text-foreground">{o.ctc}</p>
+                  </div>
+                  <div className="w-24 h-24 rounded-xl bg-white flex items-center justify-center p-2.5 shrink-0 border border-border">
                     <img
                       src={o.logo}
                       alt={`${o.company} logo`}
-                      width={48}
-                      height={48}
+                      width={96}
+                      height={96}
                       loading="lazy"
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <p className={`font-display text-lg leading-tight ${o.chosen ? "text-amber-gradient" : "text-foreground"}`}>
-                    {o.company}
-                  </p>
                 </div>
-                <p className="text-xs text-muted-foreground">{o.role}</p>
-                <p className="text-sm font-medium mt-2 text-foreground">{o.ctc}</p>
               </div>
             ))}
           </div>
