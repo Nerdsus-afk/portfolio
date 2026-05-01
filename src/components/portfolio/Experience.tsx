@@ -185,20 +185,34 @@ export const Experience = () => {
                     />
 
                     <div className={`pl-16 md:pl-0 ${isRight ? "md:pr-12 md:text-right" : "md:pl-12 md:col-start-2"}`}>
-                      <div className={`inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3 ${isRight ? "md:flex-row-reverse" : ""}`}>
-                        <Icon className="w-4 h-4 text-amber" />
-                        <span>{it.period}</span>
-                      </div>
-                      <h3 className="font-display text-2xl md:text-3xl mb-1">{it.title}</h3>
-                      <p className="text-amber font-medium mb-4">{it.org}</p>
-                      <ul className={`space-y-2 text-sm text-muted-foreground leading-relaxed ${isRight ? "md:[&_li]:flex-row-reverse" : ""}`}>
-                        {it.points.map((p) => (
-                          <li key={p} className="flex gap-2">
-                            <span className="text-amber mt-1.5 shrink-0 w-1 h-1 rounded-full bg-amber" />
-                            <span>{p}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.5 }}
+                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      >
+                        <div className={`inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3 ${isRight ? "md:flex-row-reverse" : ""}`}>
+                          <Icon className="w-4 h-4 text-amber" />
+                          <span>{it.period}</span>
+                        </div>
+                        <h3 className="font-display text-2xl md:text-3xl mb-1">{it.title}</h3>
+                        <p className="text-amber font-medium mb-4">{it.org}</p>
+                        <ul className={`space-y-2 text-sm text-muted-foreground leading-relaxed ${isRight ? "md:[&_li]:flex-row-reverse" : ""}`}>
+                          {it.points.map((p, idx) => (
+                            <motion.li
+                              key={p}
+                              initial={{ opacity: 0, y: 6 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: false, amount: 0.6 }}
+                              transition={{ duration: 0.4, delay: 0.1 + idx * 0.08, ease: "easeOut" }}
+                              className="flex gap-2"
+                            >
+                              <span className="text-amber mt-1.5 shrink-0 w-1 h-1 rounded-full bg-amber" />
+                              <span>{p}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </motion.div>
                     </div>
                   </motion.div>
                 );
