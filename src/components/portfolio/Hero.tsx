@@ -52,8 +52,8 @@ export const Hero = () => {
             className="max-w-xl text-lg text-muted-foreground leading-relaxed"
           >
             Final-year Computer Science student at SRM Institute of Science and Technology
-            (CGPA 9.16). Joining <span className="text-foreground">Bank of America</span> as
-            an Apprentice in 2026. I build software across Java, Python, and the web, explore
+            (CGPA 9.12). Joining <span className="text-foreground">Bank of America</span> as
+            an Apprentice Software Engineer in 2026. I build software across Java, Python, and the web, explore
             machine learning and NLP, and live in the terminal on Arch Linux + Hyprland.
           </motion.p>
 
@@ -97,7 +97,7 @@ export const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           </div>
           <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card">
-            <p className="font-display text-3xl text-amber">9.16</p>
+            <p className="font-display text-3xl text-amber">9.12</p>
             <p className="text-xs text-muted-foreground uppercase tracking-wider">CGPA · SRM IST</p>
           </div>
           <div className="absolute -top-4 -right-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card hidden md:block">

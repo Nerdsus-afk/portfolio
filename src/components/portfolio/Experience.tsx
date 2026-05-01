@@ -16,11 +16,11 @@ const items: {
   {
     icon: Briefcase,
     category: "experience",
-    title: "Apprentice (Incoming)",
+    title: "Apprentice Software Engineer (Incoming)",
     org: "Bank of America · 6.45 LPA",
     period: "Joining 2026",
     points: [
-      "Selected through campus placements at SRM IST to join Bank of America as an Apprentice.",
+      "Selected through campus placements at SRM IST to join Bank of America as an Apprentice Software Engineer.",
       "Chose BofA over offers from Accenture (AEH · 11 LPA), Infosys (DSE · 7 LPA) and Cognizant (GenC · 4 LPA) to grow long-term in a global engineering org.",
     ],
   },
@@ -51,7 +51,7 @@ const items: {
     category: "education",
     title: "B.Tech in Computer Science & Engineering",
     org: "SRM Institute of Science and Technology",
-    period: "Aug 2022 – Aug 2026 · CGPA 9.16",
+    period: "Aug 2022 – Aug 2026 · CGPA 9.12",
     points: [
       "Coursework across Data Structures, Algorithms, OOP, DBMS, Operating Systems, and Machine Learning.",
       "Active in technical events like the SAP VIT Hackathon 2024 and an Entrepreneurship Bootcamp.",

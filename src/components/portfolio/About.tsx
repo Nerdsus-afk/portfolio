@@ -43,7 +43,7 @@ export const About = () => (
           <p>
             I've been fortunate to receive offers from four great companies during
             campus placements, and I've chosen to begin my career at{" "}
-            <span className="text-foreground">Bank of America</span> as an Apprentice —
+            <span className="text-foreground">Bank of America</span> as an Apprentice Software Engineer —
             excited to grow in a place where engineering meets impact at scale.
           </p>
           <p>
