@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Building2 } from "lucide-react";
+import bofaLogo from "@/assets/logos/bofa.png";
+import accentureLogo from "@/assets/logos/accenture.png";
+import infosysLogo from "@/assets/logos/infosys.png";
+import cognizantLogo from "@/assets/logos/cognizant.png";
 
 const skills = [
   { label: "Java & OOP", value: 88 },
@@ -9,10 +13,10 @@ const skills = [
 ];
 
 const offers = [
-  { company: "Bank of America", role: "Apprentice", ctc: "6.45 LPA", chosen: true },
-  { company: "Accenture", role: "Advanced Engineering (AEH)", ctc: "11 LPA", chosen: false },
-  { company: "Infosys", role: "Digital Specialist Engineer", ctc: "7 LPA", chosen: false },
-  { company: "Cognizant", role: "GenC", ctc: "4 LPA", chosen: false },
+  { company: "Bank of America", role: "Apprentice", ctc: "6.45 LPA", chosen: true, logo: bofaLogo },
+  { company: "Accenture", role: "Advanced Engineering (AEH)", ctc: "11 LPA", chosen: false, logo: accentureLogo },
+  { company: "Infosys", role: "Digital Specialist Engineer", ctc: "7 LPA", chosen: false, logo: infosysLogo },
+  { company: "Cognizant", role: "GenC", ctc: "4 LPA", chosen: false, logo: cognizantLogo },
 ];
 
 export const About = () => (
@@ -70,11 +74,23 @@ export const About = () => (
                     <CheckCircle2 className="w-3 h-3" /> Chosen
                   </span>
                 )}
-                <p className={`font-display text-lg ${o.chosen ? "text-amber-gradient" : "text-foreground"}`}>
-                  {o.company}
-                </p>
-                <p className="text-xs text-muted-foreground mt-1">{o.role}</p>
-                <p className="text-sm font-medium mt-3 text-foreground">{o.ctc}</p>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center p-1.5 shrink-0 border border-border">
+                    <img
+                      src={o.logo}
+                      alt={`${o.company} logo`}
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <p className={`font-display text-lg leading-tight ${o.chosen ? "text-amber-gradient" : "text-foreground"}`}>
+                    {o.company}
+                  </p>
+                </div>
+                <p className="text-xs text-muted-foreground">{o.role}</p>
+                <p className="text-sm font-medium mt-2 text-foreground">{o.ctc}</p>
               </div>
             ))}
           </div>
