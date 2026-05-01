@@ -46,9 +46,11 @@ export const Hero = () => {
           </h1>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            key="hero-bio"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.6 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-xl text-lg text-muted-foreground leading-relaxed"
           >
             Final-year Computer Science student at SRM Institute of Science and Technology
@@ -96,10 +98,16 @@ export const Hero = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           </div>
-          <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card">
+          <motion.div
+            initial={{ opacity: 0, y: 12, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.8 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute -bottom-4 -left-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card"
+          >
             <p className="font-display text-3xl text-amber">9.12</p>
             <p className="text-xs text-muted-foreground uppercase tracking-wider">CGPA · SRM IST</p>
-          </div>
+          </motion.div>
           <div className="absolute -top-4 -right-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card hidden md:block">
             <p className="font-display text-2xl text-amber-gradient">BofA</p>
             <p className="text-xs text-muted-foreground uppercase tracking-wider">Placed · 2026</p>
