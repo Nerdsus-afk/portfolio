@@ -31,6 +31,7 @@ export const projects: Project[] = [
     stack: ["MongoDB", "Express", "React", "Node.js", "Socket.IO", "JWT"],
     role: "Web Development Intern",
     duration: "Jul 2025 – Aug 2025",
+    github: "https://github.com/Yashwantkumar2005/Learning-Management-System",
     overview:
       "At Opportive, I joined a small team improving a Learning Management System used by students and instructors. My focus areas were secure authentication, the course management surface, payment integration, and a brand new real-time chat experience.",
     highlights: [
@@ -58,6 +59,7 @@ export const projects: Project[] = [
     stack: ["Python", "scikit-learn", "NLP", "Pandas", "Matplotlib"],
     role: "Collaborative Development · Academic Research",
     duration: "2024",
+    github: "https://github.com/Yashwantkumar2005/Fake-News-Detection",
     overview:
       "An end-to-end ML study comparing four classical models for fake news classification. The goal was to understand which model genuinely generalised best, not just which had the highest top-line accuracy.",
     highlights: [
@@ -85,6 +87,7 @@ export const projects: Project[] = [
     stack: ["Java", "JavaFX", "Scene Builder", "MySQL"],
     role: "Collaborative Development",
     duration: "2024",
+    github: "https://github.com/Yashwantkumar2005/Food-Ordering-System",
     overview:
       "A desktop application that lets a restaurant manage menus and process orders while customers browse and order from a clean JavaFX interface.",
     highlights: [
@@ -112,6 +115,7 @@ export const projects: Project[] = [
     stack: ["Python", "Tkinter", "MySQL"],
     role: "Collaborative Development",
     duration: "2023",
+    github: "https://github.com/Yashwantkumar2005/Package-Manager",
     overview:
       "A small but useful desktop tool that helps track installed libraries and their changes across time, backed by a relational database.",
     highlights: [
