@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Calendar, User } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Github, User } from "lucide-react";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { ImageWithSkeleton } from "@/components/portfolio/ImageWithSkeleton";
 import { getProject, projects } from "@/data/projects";
@@ -73,12 +73,19 @@ const ProjectDetail = () => {
               </div>
               <p className="font-display text-lg">{project.role}</p>
             </div>
-            <div className="bg-card p-6">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              className={`bg-card p-6 group transition-colors ${project.github ? "hover:bg-card/70" : "pointer-events-none opacity-60"}`}
+            >
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                <Calendar className="w-4 h-4 text-amber" /> Timeline
+                <Github className="w-4 h-4 text-amber" /> GitHub
               </div>
-              <p className="font-display text-lg">{project.duration}</p>
-            </div>
+              <p className="font-display text-lg inline-flex items-center gap-2 group-hover:text-amber transition-colors">
+                View repository <ArrowUpRight className="w-4 h-4" />
+              </p>
+            </a>
             <div className="bg-card p-6">
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground mb-2">
                 <ArrowUpRight className="w-4 h-4 text-amber" /> Stack
