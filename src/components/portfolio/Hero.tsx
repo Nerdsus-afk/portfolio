@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import portrait from "@/assets/hero-portrait.jpg";
+import portrait from "@/assets/hero-portrait.png";
 
 export const Hero = () => {
   return (
@@ -82,36 +82,18 @@ export const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-5 relative"
+          className="lg:col-span-5 relative flex justify-center"
         >
-          <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden glow">
-            <div className="absolute inset-0 bg-gradient-amber opacity-20 mix-blend-overlay z-10" />
-            <img
-              src={portrait}
-              alt="Animated Batman illustration — hero visual"
-              width={1024}
-              height={1280}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              className="w-full h-full object-cover animate-float"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 12, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.8 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute -bottom-4 -left-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card"
-          >
-            <p className="font-display text-3xl text-amber">9.12</p>
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">CGPA · SRM IST</p>
-          </motion.div>
-          <div className="absolute -top-4 -right-4 bg-card border border-border rounded-2xl px-5 py-3 shadow-card hidden md:block">
-            <p className="font-display text-2xl text-amber-gradient">BofA</p>
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Placed · 2026</p>
-          </div>
+          <img
+            src={portrait}
+            alt="Lego Batman minifigure — hero visual"
+            width={1024}
+            height={1024}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="w-full max-w-md h-auto object-contain animate-float drop-shadow-2xl"
+          />
         </motion.div>
       </div>
 
