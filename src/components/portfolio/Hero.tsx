@@ -82,18 +82,49 @@ export const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-5 relative flex justify-center"
+          className="lg:col-span-5 relative flex justify-center items-end"
         >
-          <img
-            src={portrait}
-            alt="Lego Batman minifigure — hero visual"
-            width={1024}
-            height={1024}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="w-full max-w-md h-auto object-contain animate-float drop-shadow-2xl"
-          />
+          <div className="relative w-full max-w-md aspect-square">
+            {/* Ground halo / shadow */}
+            <motion.div
+              aria-hidden
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: [0.55, 0.35, 0.55],
+                scaleX: [1, 0.85, 1],
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute left-1/2 -translate-x-1/2 bottom-2 w-[60%] h-8 rounded-[50%] bg-amber/40 blur-2xl"
+            />
+            {/* Inner soft glow */}
+            <motion.div
+              aria-hidden
+              animate={{ opacity: [0.25, 0.15, 0.25] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute left-1/2 -translate-x-1/2 bottom-4 w-[40%] h-4 rounded-[50%] bg-foreground/60 blur-xl"
+            />
+
+            {/* Floating Batman with parallax idle motion */}
+            <motion.img
+              src={portrait}
+              alt="Lego Batman minifigure — hero visual"
+              width={1024}
+              height={1024}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              animate={{
+                y: [0, -14, 0, -8, 0],
+                rotate: [0, -1.2, 0, 1.2, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+            />
+          </div>
         </motion.div>
       </div>
 
