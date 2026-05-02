@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowDownRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import portrait from "@/assets/hero-portrait.png";
+import batLogo from "@/assets/batman-logo.png";
 
 export const Hero = () => {
   return (
@@ -85,6 +86,45 @@ export const Hero = () => {
           className="lg:col-span-5 relative flex justify-center items-end"
         >
           <div className="relative w-full max-w-md aspect-square">
+            {/* Radial amber aura behind everything */}
+            <div
+              aria-hidden
+              className="absolute inset-0 rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 45%, hsl(var(--amber) / 0.35) 0%, hsl(var(--amber) / 0.12) 35%, transparent 65%)",
+                filter: "blur(20px)",
+              }}
+            />
+
+            {/* Batman bat-logo backdrop — slowly rotating, pulsing */}
+            <motion.img
+              src={batLogo}
+              alt=""
+              aria-hidden
+              width={1024}
+              height={1024}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              animate={{ rotate: 360, scale: [1, 1.04, 1] }}
+              transition={{
+                rotate: { duration: 60, repeat: Infinity, ease: "linear" },
+                scale: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+              }}
+              className="absolute inset-0 m-auto w-[88%] h-[88%] object-contain opacity-70 drop-shadow-[0_0_40px_hsl(var(--amber)/0.55)]"
+            />
+
+            {/* Soft inner vignette to lift the figure off the logo */}
+            <div
+              aria-hidden
+              className="absolute inset-0 rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 60%, transparent 30%, hsl(var(--background) / 0.55) 75%)",
+              }}
+            />
+
             {/* Ground halo / shadow */}
             <motion.div
               aria-hidden
