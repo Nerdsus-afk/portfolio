@@ -88,7 +88,7 @@ export const Hero = () => {
             <div className="absolute inset-0 bg-gradient-amber opacity-20 mix-blend-overlay z-10" />
             <img
               src={portrait}
-              alt="Yashwant Kumar S — Computer Science student & developer"
+              alt="Animated Batman illustration — hero visual"
               width={1024}
               height={1280}
               loading="eager"
