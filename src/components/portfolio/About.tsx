@@ -85,11 +85,17 @@ export const About = () => (
                   <div className="w-24 h-24 rounded-xl bg-white flex items-center justify-center p-2.5 shrink-0 border border-border">
                     <img
                       src={o.logo}
-                      alt={`${o.company} logo`}
+                      srcSet={`${o.logo} 1x, ${o.logo} 2x`}
+                      sizes="96px"
+                      alt={`${o.company} company logo — placement offer for ${o.role}`}
                       width={96}
                       height={96}
-                      loading="lazy"
-                      className="w-full h-full object-contain"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
+                      draggable={false}
+                      style={{ imageRendering: "auto" }}
+                      className="w-full h-full object-contain [image-rendering:auto] [-webkit-backface-visibility:hidden] [transform:translateZ(0)]"
                     />
                   </div>
                 </div>
