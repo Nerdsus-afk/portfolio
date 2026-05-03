@@ -100,8 +100,8 @@ export const Hero = () => {
             {/* Batman bat-logo backdrop — slowly rotating, pulsing */}
             <motion.img
               src={batLogo}
-              alt=""
-              aria-hidden
+              alt="Batman bat-signal logo glowing in amber behind the hero character"
+              aria-hidden="true"
               width={1024}
               height={1024}
               loading="eager"
@@ -147,7 +147,7 @@ export const Hero = () => {
             {/* Floating Batman with parallax idle motion */}
             <motion.img
               src={portrait}
-              alt="Lego Batman minifigure — hero visual"
+              alt="3D LEGO Batman minifigure floating in front of a glowing amber bat-signal — portfolio hero of Yashwant Kumar S"
               width={1024}
               height={1024}
               loading="eager"
