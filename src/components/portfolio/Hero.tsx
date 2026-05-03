@@ -42,7 +42,7 @@ export const Hero = () => {
               transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="block text-gradient text-[0.55em]"
             >
-              writes code, ships ideas.
+              My brain is O(n²). My coffee is O(1).
             </motion.span>
           </h1>
 
