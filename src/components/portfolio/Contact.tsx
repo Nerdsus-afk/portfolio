@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, Phone, Briefcase, Code } from "lucide-react";
-const Linkedin = Briefcase;
-const Github = Code;
+import { ArrowUpRight, Mail, Phone, Linkedin, Github } from "lucide-react";
 
 const socials = [
   { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/yashwant-kumar-744336252/" },

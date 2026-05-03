@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Code as Github } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
 import { prefetchHandlers } from "@/lib/prefetch";

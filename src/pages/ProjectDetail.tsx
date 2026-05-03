@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Code as Github, User } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Github, User } from "lucide-react";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { ImageWithSkeleton } from "@/components/portfolio/ImageWithSkeleton";
 import { getProject, projects } from "@/data/projects";
