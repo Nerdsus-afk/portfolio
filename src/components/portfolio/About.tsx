@@ -30,10 +30,10 @@ export const About = () => (
         className="lg:col-span-7"
       >
         <p className="text-xs uppercase tracking-[0.3em] text-amber mb-6">About</p>
-        <h2 className="font-display text-4xl md:text-6xl tracking-tighter leading-[1.05] text-gradient mb-8">
-          A curious engineer who loves <span className="italic text-amber-gradient">shipping things.</span>
+        <h2 className="font-display text-4xl md:text-6xl tracking-tighter leading-[1.05] text-gradient mb-8 text-balance">
+          Trying to merge my ambitions <span className="italic text-amber-gradient">before the deadline.</span>
         </h2>
-        <div className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-2xl">
+        <div className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-2xl text-justify hyphens-auto">
           <p>
             I'm a final-year Computer Science and Engineering student at SRM Institute
             of Science and Technology, graduating in 2026 with a CGPA of 9.12. I enjoy
