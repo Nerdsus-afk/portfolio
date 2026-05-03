@@ -40,9 +40,9 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="block text-gradient text-[0.55em]"
+              className="block font-mono font-light text-muted-foreground text-[clamp(0.95rem,1.6vw,1.35rem)] tracking-tight leading-snug mt-4"
             >
-              My brain is O(n²). My coffee is O(1).
+              <span className="text-amber">{"//"}</span> My brain is O(n²). My coffee is O(1).
             </motion.span>
           </h1>
 
