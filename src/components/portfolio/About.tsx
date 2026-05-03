@@ -29,30 +29,65 @@ export const About = () => (
         transition={{ duration: 0.8 }}
         className="lg:col-span-7"
       >
-        <p className="text-xs uppercase tracking-[0.3em] text-amber mb-6">About</p>
-        <h2 className="font-display text-4xl md:text-6xl tracking-tighter leading-[1.05] text-gradient mb-8 text-balance">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-xs uppercase tracking-[0.3em] text-amber mb-6"
+        >
+          About
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-[1.08] md:leading-[1.05] text-gradient mb-8 text-balance max-w-[18ch]"
+        >
           Trying to merge my ambitions <span className="italic text-amber-gradient">before the deadline.</span>
-        </h2>
-        <div className="space-y-5 text-muted-foreground text-lg leading-relaxed max-w-2xl text-justify hyphens-auto">
-          <p>
-            I'm a final-year Computer Science and Engineering student at SRM Institute
-            of Science and Technology, graduating in 2026 with a CGPA of 9.12. I enjoy
-            writing clean Java and Python, exploring machine learning, and turning
-            ideas into working software.
-          </p>
-          <p>
-            I've been fortunate to receive offers from four great companies during
-            campus placements, and I've chosen to begin my career at{" "}
-            <span className="text-foreground">Bank of America</span> as an Apprentice Software Engineer —
-            excited to grow in a place where engineering meets impact at scale.
-          </p>
-          <p>
-            Most recently I interned at <span className="text-foreground">Opportive</span> as
-            a Web Development Intern, contributing to a Learning Management System and
-            a real-time chat module with Socket.IO. Outside coursework I tinker with
-            NLP, sharpen my DSA, and daily-drive Arch Linux with Hyprland.
-          </p>
-        </div>
+        </motion.h2>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+          }}
+          className="space-y-5 text-muted-foreground text-base sm:text-[1.0625rem] md:text-lg leading-relaxed md:leading-[1.75] max-w-[65ch] text-pretty md:text-justify hyphens-auto"
+        >
+          {[
+            <>
+              I'm a final-year Computer Science and Engineering student at SRM Institute
+              of Science and Technology, graduating in 2026 with a CGPA of 9.12. I enjoy
+              writing clean Java and Python, exploring machine learning, and turning
+              ideas into working software.
+            </>,
+            <>
+              I've been fortunate to receive offers from four great companies during
+              campus placements, and I've chosen to begin my career at{" "}
+              <span className="text-foreground">Bank of America</span> as an Apprentice Software Engineer —
+              excited to grow in a place where engineering meets impact at scale.
+            </>,
+            <>
+              Most recently I interned at <span className="text-foreground">Opportive</span> as
+              a Web Development Intern, contributing to a Learning Management System and
+              a real-time chat module with Socket.IO. Outside coursework I tinker with
+              NLP, sharpen my DSA, and daily-drive Arch Linux with Hyprland.
+            </>,
+          ].map((content, i) => (
+            <motion.p
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 16 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+              }}
+            >
+              {content}
+            </motion.p>
+          ))}
+        </motion.div>
 
         {/* Offers */}
         <div className="mt-12">
