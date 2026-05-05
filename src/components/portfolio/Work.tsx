@@ -81,7 +81,7 @@ const ProjectCard = ({ project: p, index: i }: { project: typeof projects[number
               <ArrowUpRight className="w-5 h-5 transition-transform group-hover:rotate-45" />
             </div>
           </div>
-          <p className="text-sm text-muted-foreground leading-relaxed mb-5">{p.desc}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-5 text-justify">{p.desc}</p>
           <div className="flex flex-wrap gap-2">
             {p.stack.map((s) => (
               <span key={s} className="text-xs px-3 py-1 rounded-full border border-border text-muted-foreground">
