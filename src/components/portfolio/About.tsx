@@ -29,6 +29,29 @@ export const About = () => {
     ? { opacity: 1 }
     : { opacity: 1, y: 0 };
 
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const open = lightboxIndex !== null;
+  const current = open ? offers[lightboxIndex!] : null;
+
+  const next = useCallback(
+    () => setLightboxIndex((i) => (i === null ? i : (i + 1) % offers.length)),
+    []
+  );
+  const prev = useCallback(
+    () => setLightboxIndex((i) => (i === null ? i : (i - 1 + offers.length) % offers.length)),
+    []
+  );
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") prev();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, next, prev]);
+
   return (
   <section id="about" className="py-32 relative scroll-mt-24">
     <div className="container grid lg:grid-cols-12 gap-16">
