@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { CheckCircle2, Building2 } from "lucide-react";
 import bofaLogo from "@/assets/logos/bofa.png";
 import accentureLogo from "@/assets/logos/accenture.png";
