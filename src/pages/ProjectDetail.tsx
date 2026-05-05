@@ -56,7 +56,7 @@ const ProjectDetail = () => {
             <h1 className="font-display text-5xl md:text-7xl tracking-tighter text-gradient mb-8 leading-[0.95]">
               {project.title}
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed md:text-justify text-pretty [hyphens:none] [word-break:normal] [overflow-wrap:normal]">
               {project.overview}
             </p>
           </motion.div>
@@ -187,7 +187,7 @@ const Section = ({ title, items }: { title: string; items: string[] }) => (
       {items.map((it) => (
         <li key={it} className="flex gap-3 text-muted-foreground leading-relaxed">
           <span className="mt-2 w-1.5 h-1.5 rounded-full bg-amber shrink-0" />
-          <span>{it}</span>
+          <span className="text-pretty md:text-justify [hyphens:none] [word-break:normal] [overflow-wrap:normal]">{it}</span>
         </li>
       ))}
     </ul>

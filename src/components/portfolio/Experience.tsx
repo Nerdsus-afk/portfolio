@@ -197,7 +197,7 @@ export const Experience = () => {
                         </div>
                         <h3 className="font-display text-2xl md:text-3xl mb-1">{it.title}</h3>
                         <p className="text-amber font-medium mb-4">{it.org}</p>
-                        <ul className={`space-y-2 text-sm text-muted-foreground leading-relaxed ${isRight ? "md:[&_li]:flex-row-reverse" : ""}`}>
+                        <ul className={`space-y-2 text-sm text-muted-foreground leading-relaxed [&_li>span:last-child]:text-pretty md:[&_li>span:last-child]:text-justify [&_li>span:last-child]:[hyphens:none] [&_li>span:last-child]:[word-break:normal] [&_li>span:last-child]:[overflow-wrap:normal] ${isRight ? "md:[&_li]:flex-row-reverse" : ""}`}>
                           {it.points.map((p, idx) => (
                             <motion.li
                               key={p}

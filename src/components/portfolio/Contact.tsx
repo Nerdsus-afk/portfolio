@@ -35,7 +35,7 @@ export const Contact = () => (
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2 }}
-        className="text-muted-foreground text-lg max-w-xl mx-auto mb-12"
+        className="text-muted-foreground text-lg max-w-xl mx-auto mb-12 text-pretty [hyphens:none] [word-break:normal] [overflow-wrap:normal]"
       >
         I'm joining Bank of America as an Apprentice Software Engineer in 2026. Until then,
         I'm always up for interesting conversations, side projects, and

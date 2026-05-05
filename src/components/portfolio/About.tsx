@@ -63,7 +63,7 @@ export const About = () => {
             hidden: {},
             show: { transition: { staggerChildren: prefersReducedMotion ? 0 : 0.12, delayChildren: prefersReducedMotion ? 0 : 0.15 } },
           }}
-          className="space-y-6 text-muted-foreground text-[clamp(1rem,1.4vw,1.125rem)] leading-[1.75] max-w-[65ch] text-pretty md:text-justify hyphens-auto"
+          className="space-y-6 text-muted-foreground text-[clamp(1rem,1.4vw,1.125rem)] leading-[1.75] max-w-[65ch] text-pretty md:text-justify [hyphens:none] [word-break:normal] [overflow-wrap:normal]"
         >
           {[
             <>
