@@ -153,7 +153,7 @@ export const About = () => {
                       fetchPriority="high"
                       draggable={false}
                       style={{ imageRendering: "auto" }}
-                      className="w-full h-full [image-rendering:auto] [-webkit-backface-visibility:hidden] [transform:translateZ(0)] object-fill"
+                      className="w-full h-full [image-rendering:auto] [-webkit-backface-visibility:hidden] [transform:translateZ(0)] object-contain"
                     />
                   </div>
                 </div>
