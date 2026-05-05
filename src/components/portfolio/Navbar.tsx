@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const links = [
-  { label: "Projects", href: "#work" },
   { label: "About", href: "#about" },
+  { label: "Projects", href: "#work" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#process" },
   { label: "Contact", href: "#contact" },
