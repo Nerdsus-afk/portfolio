@@ -19,19 +19,27 @@ const offers = [
   { company: "Cognizant", role: "GenC", ctc: "4 LPA", chosen: false, logo: cognizantLogo },
 ];
 
-export const About = () => (
-  <section id="about" className="py-32 relative">
+export const About = () => {
+  const prefersReducedMotion = useReducedMotion();
+  const fadeY = (y: number) =>
+    prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y };
+  const show = prefersReducedMotion
+    ? { opacity: 1 }
+    : { opacity: 1, y: 0 };
+
+  return (
+  <section id="about" className="py-32 relative scroll-mt-24">
     <div className="container grid lg:grid-cols-12 gap-16">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={fadeY(40)}
+        whileInView={show}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         className="lg:col-span-7"
       >
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={fadeY(12)}
+          whileInView={show}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-xs uppercase tracking-[0.3em] text-amber mb-6"
@@ -39,11 +47,11 @@ export const About = () => (
           About
         </motion.p>
         <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={fadeY(24)}
+          whileInView={show}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-[1.08] md:leading-[1.05] text-gradient mb-8 text-balance max-w-[18ch]"
+          className="font-display tracking-tighter text-gradient mb-8 text-balance max-w-[18ch] text-[clamp(1.875rem,5.2vw,3.75rem)] leading-[1.08] md:leading-[1.05]"
         >
           Trying to merge my ambitions <span className="italic text-amber-gradient">before the deadline.</span>
         </motion.h2>
@@ -53,26 +61,39 @@ export const About = () => (
           viewport={{ once: true, margin: "-60px" }}
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+            show: { transition: { staggerChildren: prefersReducedMotion ? 0 : 0.12, delayChildren: prefersReducedMotion ? 0 : 0.15 } },
           }}
-          className="space-y-5 text-muted-foreground text-base sm:text-[1.0625rem] md:text-lg leading-relaxed md:leading-[1.75] max-w-[65ch] text-pretty md:text-justify hyphens-auto"
+          className="space-y-6 text-muted-foreground text-[clamp(1rem,1.4vw,1.125rem)] leading-[1.75] max-w-[65ch] text-pretty md:text-justify hyphens-auto"
         >
           {[
             <>
-              I'm a final-year Computer Science and Engineering student at SRM Institute
-              of Science and Technology, graduating in 2026 with a CGPA of 9.12. I enjoy
+              I'm a final-year Computer Science and Engineering student at{" "}
+              <span className="relative text-foreground">
+                SRM Institute of Science and Technology
+                <span className="absolute left-0 -bottom-0.5 h-px w-full bg-gradient-amber opacity-60" aria-hidden />
+              </span>
+              , graduating in 2026 with a CGPA of{" "}
+              <span className="text-amber-gradient font-medium">9.12</span>. I enjoy
               writing clean Java and Python, exploring machine learning, and turning
               ideas into working software.
             </>,
             <>
               I've been fortunate to receive offers from four great companies during
               campus placements, and I've chosen to begin my career at{" "}
-              <span className="text-foreground">Bank of America</span> as an Apprentice Software Engineer —
+              <span className="relative text-foreground">
+                Bank of America
+                <span className="absolute left-0 -bottom-0.5 h-px w-full bg-gradient-amber opacity-60" aria-hidden />
+              </span>{" "}
+              as an Apprentice Software Engineer —
               excited to grow in a place where engineering meets impact at scale.
             </>,
             <>
-              Most recently I interned at <span className="text-foreground">Opportive</span> as
-              a Web Development Intern, contributing to a Learning Management System and
+              Most recently I interned at{" "}
+              <span className="relative text-foreground">
+                Opportive
+                <span className="absolute left-0 -bottom-0.5 h-px w-full bg-gradient-amber opacity-60" aria-hidden />
+              </span>{" "}
+              as a Web Development Intern, contributing to a Learning Management System and
               a real-time chat module with Socket.IO. Outside coursework I tinker with
               NLP, sharpen my DSA, and daily-drive Arch Linux with Hyprland.
             </>,
@@ -80,8 +101,10 @@ export const About = () => (
             <motion.p
               key={i}
               variants={{
-                hidden: { opacity: 0, y: 16 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+                hidden: prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 16 },
+                show: prefersReducedMotion
+                  ? { opacity: 1, transition: { duration: 0.01 } }
+                  : { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
               }}
             >
               {content}
