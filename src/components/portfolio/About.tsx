@@ -1,5 +1,7 @@
-import { motion, useReducedMotion } from "framer-motion";
-import { CheckCircle2, Building2 } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
+import { CheckCircle2, Building2, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import bofaLogo from "@/assets/logos/bofa.png";
 import accentureLogo from "@/assets/logos/accenture.png";
 import infosysLogo from "@/assets/logos/infosys.png";
