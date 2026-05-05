@@ -52,7 +52,7 @@ export const Hero = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.6 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-xl text-lg text-muted-foreground leading-relaxed"
+            className="max-w-xl text-lg text-muted-foreground leading-relaxed md:text-justify text-pretty [hyphens:none] [word-break:normal] [overflow-wrap:normal]"
           >
             Final-year Computer Science student at SRM Institute of Science and Technology
             (CGPA 9.12). Joining <span className="text-foreground">Bank of America</span> as
