@@ -204,5 +204,6 @@ export const About = () => {
       </motion.div>
     </div>
   </section>
-);
+  );
+};
 
