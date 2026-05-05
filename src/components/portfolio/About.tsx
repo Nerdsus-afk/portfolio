@@ -1,5 +1,7 @@
-import { motion, useReducedMotion } from "framer-motion";
-import { CheckCircle2, Building2 } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
+import { CheckCircle2, Building2, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import bofaLogo from "@/assets/logos/bofa.png";
 import accentureLogo from "@/assets/logos/accenture.png";
 import infosysLogo from "@/assets/logos/infosys.png";
@@ -26,6 +28,29 @@ export const About = () => {
   const show = prefersReducedMotion
     ? { opacity: 1 }
     : { opacity: 1, y: 0 };
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const open = lightboxIndex !== null;
+  const current = open ? offers[lightboxIndex!] : null;
+
+  const next = useCallback(
+    () => setLightboxIndex((i) => (i === null ? i : (i + 1) % offers.length)),
+    []
+  );
+  const prev = useCallback(
+    () => setLightboxIndex((i) => (i === null ? i : (i - 1 + offers.length) % offers.length)),
+    []
+  );
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") prev();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, next, prev]);
 
   return (
   <section id="about" className="py-32 relative scroll-mt-24">
@@ -140,7 +165,19 @@ export const About = () => {
                     <p className="text-xs text-muted-foreground mt-2">{o.role}</p>
                     <p className="text-sm font-medium mt-2 text-foreground">{o.ctc}</p>
                   </div>
-                  <div className="w-24 h-24 rounded-xl bg-white flex items-center justify-center p-2.5 shrink-0 border border-border">
+                  <motion.button
+                    type="button"
+                    onClick={() => setLightboxIndex(offers.indexOf(o))}
+                    aria-label={`Open larger view of ${o.company} logo`}
+                    initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.9, y: 8 }}
+                    whileInView={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    whileHover={prefersReducedMotion ? undefined : { scale: 1.05, rotate: -1 }}
+                    whileTap={prefersReducedMotion ? undefined : { scale: 0.96 }}
+                    className="relative w-24 h-24 aspect-square rounded-xl bg-white flex items-center justify-center p-2.5 shrink-0 border border-border overflow-hidden group/logo cursor-zoom-in transition-shadow hover:shadow-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-amber"
+                  >
+                    <span aria-hidden className="absolute inset-0 bg-gradient-amber opacity-0 group-hover/logo:opacity-10 transition-opacity duration-500" />
                     <img
                       src={o.logo}
                       srcSet={`${o.logo} 1x, ${o.logo} 2x`}
@@ -153,9 +190,9 @@ export const About = () => {
                       fetchPriority="high"
                       draggable={false}
                       style={{ imageRendering: "auto" }}
-                      className="w-full h-full [image-rendering:auto] [-webkit-backface-visibility:hidden] [transform:translateZ(0)] object-contain"
+                      className="relative w-full h-full max-w-full max-h-full [image-rendering:auto] [-webkit-backface-visibility:hidden] [transform:translateZ(0)] object-contain transition-transform duration-500 ease-out group-hover/logo:scale-110"
                     />
-                  </div>
+                  </motion.button>
                 </div>
               </div>
             ))}
@@ -203,6 +240,64 @@ export const About = () => {
         </div>
       </motion.div>
     </div>
+
+    <Dialog open={open} onOpenChange={(v) => !v && setLightboxIndex(null)}>
+      <DialogContent className="max-w-3xl border-border bg-background/95 backdrop-blur p-0 overflow-hidden">
+        <AnimatePresence mode="wait">
+          {current && (
+            <motion.div
+              key={current.company}
+              initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="relative"
+            >
+              <div className="aspect-[4/3] sm:aspect-[16/10] w-full bg-white flex items-center justify-center p-10 sm:p-16">
+                <img
+                  src={current.logo}
+                  alt={`${current.company} company logo, enlarged view`}
+                  className="max-w-full max-h-full object-contain select-none"
+                  draggable={false}
+                />
+              </div>
+
+              <div className="flex items-center justify-between gap-4 px-6 py-4 border-t border-border bg-card">
+                <div className="min-w-0">
+                  <p className="font-display text-lg leading-tight text-foreground truncate">
+                    {current.company}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1 truncate">
+                    {current.role} · {current.ctc}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="text-xs text-muted-foreground tabular-nums mr-1">
+                    {(lightboxIndex ?? 0) + 1} / {offers.length}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={prev}
+                    aria-label="Previous logo"
+                    className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-amber hover:border-amber hover:text-primary-foreground transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={next}
+                    aria-label="Next logo"
+                    className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-amber hover:border-amber hover:text-primary-foreground transition-colors"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </DialogContent>
+    </Dialog>
   </section>
   );
 };
