@@ -143,15 +143,32 @@ export const About = () => {
             <Building2 className="w-3.5 h-3.5" /> Placement offers
           </p>
           <div className="grid sm:grid-cols-2 gap-3">
-            {offers.map((o) => (
-              <div
+            {offers.map((o, idx) => (
+              <motion.div
                 key={o.company}
-                className={`relative p-5 rounded-2xl border transition-all overflow-hidden ${
+                initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
+                whileInView={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={prefersReducedMotion ? undefined : { y: -6, scale: 1.02 }}
+                className={`group/card relative p-5 rounded-2xl border overflow-hidden transition-[box-shadow,border-color,background-color] duration-500 cursor-default ${
                   o.chosen
-                    ? "border-amber bg-card shadow-glow"
-                    : "border-border bg-card/60"
+                    ? "border-amber bg-card shadow-glow hover:shadow-[0_20px_60px_-15px_hsl(var(--amber)/0.55)]"
+                    : "border-border bg-card/60 hover:border-amber/60 hover:bg-card hover:shadow-[0_20px_50px_-20px_hsl(var(--amber)/0.35)]"
                 }`}
               >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-amber opacity-0 group-hover/card:opacity-[0.06] transition-opacity duration-500"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -inset-px rounded-2xl ring-1 ring-amber/0 group-hover/card:ring-amber/30 transition-[box-shadow] duration-500"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -top-1/2 -left-1/2 w-[60%] h-[200%] rotate-12 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-120%] group-hover/card:translate-x-[260%] transition-transform duration-[1100ms] ease-out"
+                />
                 {o.chosen && (
                   <span className="absolute top-3 left-3 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.18em] text-amber font-medium z-10">
                     <CheckCircle2 className="w-3 h-3" /> Chosen
