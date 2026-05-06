@@ -211,7 +211,7 @@ export const About = () => {
                     />
                   </motion.button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
